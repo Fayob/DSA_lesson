@@ -85,6 +85,23 @@ class LinkedList {
         this.length--
         return this.printList()
     }
+
+    reverse() {
+      let first = this.head
+      this.tail = this.head
+      let second = first.next 
+
+      while (second) {
+          const third = second.next
+          second.next = first
+          first = second
+          second = third
+      }
+
+      this.head.next = null
+      this.head = first
+      return this
+    }
 }
 
 const newLinkedList = new LinkedList(16)
@@ -97,4 +114,5 @@ newLinkedList.insert(1, 99);
 newLinkedList.insert(2, 120);
 newLinkedList.remove(2);
 newLinkedList.remove(5);
+console.log(newLinkedList.reverse()); 
 // newLinkedList.printList();
