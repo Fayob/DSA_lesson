@@ -128,6 +128,17 @@ const traversePreOrder = (node, list) => {
   return list
 }
 
+const traversePostOrder = (node, list) => {
+  // console.log(node.value);
+  if (node.left) {
+    traversePostOrder(node.left, list)
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list)
+  }
+  list.push(node.value)
+  return list
+}
 
 const tree = new BinarySearchTree();
 tree.insert(8);
@@ -142,3 +153,4 @@ tree.breadthFirstSearch();
 tree.breadthFirstSearch(this.root, []);
 console.log(tree.DepthFirstSearchInOrder(this.root, []));
 console.log(tree.DepthFirstSearchPreOrder(this.root, []));
+console.log(tree.DepthFirstSearchPostOrder(this.root, []));
